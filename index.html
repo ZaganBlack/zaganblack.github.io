@@ -96,49 +96,32 @@
             
 
             <!-- Create the canvas element the game draws to -->
-<canvas id="canvas" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>
-
-<script>
-function setCanvasSize() {
-  var canvas = document.getElementById('canvas');
-  var width, height;
-
-  // Check if user agent indicates a mobile device
-  var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    // Set dimensions for mobile
-    width = 414;
-    height = 896;
-  } else {
-    // Set dimensions for desktop
-    width = 1336;
-    height = 768;
-  }
-
-  // Set canvas dimensions
-  canvas.width = width;
-  canvas.height = height;
-}
-
-// Call the function to set canvas size when the window loads
-window.onload = setCanvasSize;
-</script>
-
+<canvas id="canvas" width="1366" height="768" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <p>Your browser doesn't support HTML5 canvas.</p>
 </canvas>
         </div>
+<script>
+  function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
 
-        <!-- Run the game code -->
-        <script type="text/javascript" src="Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579"></script>
+  if (isMobile()) {
+    // Code for mobile devices
+    document.write("<h1>Mobile Device Detected</h1>");
+  } else {
+     // Run the game code
+     <script type="text/javascript" src="Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579"></script>
+    document.write("<h1>Desktop Device Detected</h1>");
+  }
+</script>
+
+       
 
         <!-- Builtin injector for injecting runner path -->
         
-
         <script>window.onload = GameMaker_Init;</script>
 
         <!-- Builtin injector for injecting google analytics code -->
-        
 
     </body>
 
