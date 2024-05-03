@@ -97,26 +97,34 @@
 
             <!-- Create the canvas element the game draws to -->
         </div>
-<script>
-  function isMobile() {
-    return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent);
-  }
+    <script type="text/javascript">
+        function isMobile() {
+            return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent);
+        }
 
-  if (isMobile()) {
-        <canvas id="canvas" width="414" height="896" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    <p>Your browser doesn't support HTML5 canvas.</p>
-</canvas>
-     <script type="text/javascript" src="Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579"></script>
-    document.write("<h1>Mobile Device Detected</h1>");
-  } else {
-     // Run the game code
-      <canvas id="canvas" width="414" height="896" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    <p>Your browser doesn't support HTML5 canvas.</p>
-</canvas>
-     <script type="text/javascript" src="Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579"></script>
-    document.write("<h1>Desktop Device Detected</h1>");
-  }
-</script>
+        window.onload = function() {
+            var canvasHTML = "";
+            var scriptSrc = "Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579";
+            if (isMobile()) {
+                canvasHTML = '<canvas id="canvas" width="414" height="896" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>';
+                document.body.innerHTML += "<h1>Mobile Device Detected</h1>";
+            } else {
+                canvasHTML = '<canvas id="canvas" width="1366" height="768" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>';
+                document.body.innerHTML += "<h1>Desktop Device Detected</h1>";
+            }
+
+            document.body.innerHTML += canvasHTML;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = scriptSrc;
+            document.body.appendChild(script);
+
+            var canvas = document.getElementById('canvas');
+            if (!canvas.getContext) {
+                document.body.innerHTML += "<p>Your browser doesn't support HTML5 canvas.</p>";
+            }
+        };
+    </script>
 
        
 
