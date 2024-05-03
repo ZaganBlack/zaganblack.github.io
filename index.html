@@ -96,20 +96,23 @@
             
 
             <!-- Create the canvas element the game draws to -->
-<canvas id="canvas" width="1366" height="768" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    <p>Your browser doesn't support HTML5 canvas.</p>
-</canvas>
         </div>
 <script>
   function isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent);
   }
 
   if (isMobile()) {
-    // Code for mobile devices
+        <canvas id="canvas" width="414" height="896" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <p>Your browser doesn't support HTML5 canvas.</p>
+</canvas>
+     <script type="text/javascript" src="Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579"></script>
     document.write("<h1>Mobile Device Detected</h1>");
   } else {
      // Run the game code
+      <canvas id="canvas" width="1366" height="768" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <p>Your browser doesn't support HTML5 canvas.</p>
+</canvas>
      <script type="text/javascript" src="Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579"></script>
     document.write("<h1>Desktop Device Detected</h1>");
   }
