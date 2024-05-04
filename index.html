@@ -23,8 +23,8 @@
         <!-- Set the background colour of the document -->
         <style>
             body {
-                background: #0;
-                color: #cccccc;
+                background: #000;
+                color: #000000;
                 margin: 0px;
                 padding: 0px;
                 border: 0px;
@@ -96,21 +96,43 @@
             
 
             <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="1366" height="768" style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);">
-                <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
         </div>
+    <script type="text/javascript">
+        function isMobile() {
+            return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent);
+        }
 
-        <!-- Run the game code -->
-        <script type="text/javascript" src="Zagan's Universe/ZAGAN WEBSITE.js?cachebust=540361511"></script>
+        window.onload = function() {
+            var canvasHTML = "";
+            var scriptSrc = "Zagan's Universe/ZAGAN WEBSITE.js?cachebust=1313055579";
+            if (isMobile()) {
+                canvasHTML = '<canvas id="canvas" width="414" height="896" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>';
+                document.body.innerHTML += "<h1>Mobile Device Detected</h1>";
+            } else {
+                canvasHTML = '<canvas id="canvas" width="1366" height="768" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>';
+                document.body.innerHTML += "<h1>Desktop Device Detected</h1>";
+            }
+
+            document.body.innerHTML += canvasHTML;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = scriptSrc;
+            document.body.appendChild(script);
+
+            var canvas = document.getElementById('canvas');
+            if (!canvas.getContext) {
+                document.body.innerHTML += "<p>Your browser doesn't support HTML5 canvas.</p>";
+            }
+        };
+    </script>
+
+       
 
         <!-- Builtin injector for injecting runner path -->
         
-
         <script>window.onload = GameMaker_Init;</script>
 
         <!-- Builtin injector for injecting google analytics code -->
-        
 
     </body>
 
